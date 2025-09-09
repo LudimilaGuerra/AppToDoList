@@ -32,8 +32,9 @@ public class AppToDoList {
             System.out.println("2. Listar Tarefas");
             System.out.println("3. Atualizar Tarefa");
             System.out.println("4. Remover Tarefa");
-            System.out.println("5. Sair");
-            System.out.print("Escolha uma opção");
+            System.out.println("5. Marcar/Desmarcar Concluída");
+            System.out.println("0. Sair");
+            System.out.print("Escolha uma opção: ");
             
             int opcao = entrada.nextInt(); 
             entrada.nextLine(); // consumir quebra de linha
@@ -55,8 +56,8 @@ public class AppToDoList {
                         System.out.println(" Lista de Tarefas:");
                         for (Tarefas t: tarefas){
                             System.out.println(" Título: " + t.getTitulo());
-                            System.out.println(" Descrição: " + t.getDescricao);
-                            System.out.println(" Data de criação: " + getdataAgoraFormatadaPtBr());
+                            System.out.println(" Descrição: " + t.getDescricao());
+                            System.out.println(" Data de criação: " + t.getDataAgora());
                             System.out.println(" >>>>>> \n");
                         }
                     }
@@ -80,10 +81,26 @@ public class AppToDoList {
                         System.out.println("Tarefa não encontrada. ");
                     }
                 }
+                case 5 -> {
+                    System.out.print(" Digite o ID da tarefa: ");
+                    Long id = entrada.nextLong();
+                    entrada.nextLine();
+                    
+                    boolean mudou = servico.alternarConclusao(id);
+                    if (mudou) {
+                        System.out.println(" Status da tarefa alterado com sucesso!");
+                    } else {
+                        System.out.println(" Tarefa não encontrada.");
+                    }
+                }
+                case 0 -> {
+                    System.out.println(" Saindo...");
+                    return;
+                }
+                default -> {
+                    System.out.println(" Opção inválida, tente novamente.");
+                }
             }
         }
     }
 }
-
-
-
