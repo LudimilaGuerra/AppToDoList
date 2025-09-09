@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ucb.aplicativo.service;
+package ucb.aplicativo.servico;
 
 import java.util.List;
 import ucb.aplicativo.model.Tarefas;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author ludimila.guerra
  */
-public class TarefaService {
+public class TarefaServico {
     private List<Tarefas> tarefas = new arrayList<>();
     private Long contadorId = 1L; //LITERAL
 

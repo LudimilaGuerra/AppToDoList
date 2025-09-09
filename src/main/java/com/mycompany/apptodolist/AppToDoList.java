@@ -8,8 +8,8 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
-import ucb.aplicacao.model.Tarefas;
-import ucb.aplicacao.servico.TarefaService;
+import ucb.aplicativo.model.Tarefas;
+import ucb.aplicativo.servico.TarefaServico;
 
 /**
  *
@@ -24,7 +24,7 @@ public class AppToDoList {
         System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
         
         Scanner entrada = new Scanner(System.in);
-        TarefaService servico = new TarefaService();
+        TarefaServico servico = new TarefaServico();
         
         while (true) {
             System.out.println("\n===== GERENCIADOR DE TAREFAS =====");
