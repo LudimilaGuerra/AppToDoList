@@ -45,7 +45,7 @@ public class AppToDoList {
                     String titulo = entrada.nextLine();
                     System.out.print("Descrição: ");
                     String descricao = entrada.nextLine();
-                    Tarefas nova = servico.criarTarefa(titulo, descricao);
+                    Tarefas nova = servico.criarTarefas(titulo, descricao);
                     System.out.println(" Tarefa criada: " + nova.getTitulo());
                 }
                 case 2 -> {
@@ -74,7 +74,7 @@ public class AppToDoList {
                     System.out.print("Está completa? (true/false): ");
                     boolean completa = entrada.nextBoolean();
                     
-                    boolean atualizado = servico.atualizarTarefa (id, novoTitulo, novaDescricao, completa);
+                    boolean atualizado = servico.adicionarTarefa (id, novoTitulo, novaDescricao, completa);
                     if (atualizado) {
                         System.out.println(" Tarefa atualizada com sucesso!");
                     } else {
@@ -86,7 +86,7 @@ public class AppToDoList {
                     Long id = entrada.nextLong();
                     entrada.nextLine();
                     
-                    boolean mudou = servico.alternarConclusao(id);
+                    boolean mudou = servico.concluirTarefa(id);
                     if (mudou) {
                         System.out.println(" Status da tarefa alterado com sucesso!");
                     } else {
