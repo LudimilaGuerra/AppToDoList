@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
-package com.mycompany.apptodolist;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
@@ -31,8 +27,8 @@ public class AppToDoList {
             System.out.println("1. Criar Tarefa");
             System.out.println("2. Listar Tarefas");
             System.out.println("3. Atualizar Tarefa");
-            System.out.println("4. Remover Tarefa");
-            System.out.println("5. Marcar/Desmarcar Concluída");
+            System.out.println("4. Marcar/Desmarcar Tarefa como Concluida");
+            System.out.println("5. Remover Tarefa");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             
@@ -72,16 +68,16 @@ public class AppToDoList {
                     System.out.print("Nova descrição ");
                     String novaDescricao = entrada.nextLine();
                     System.out.print("Está completa? (true/false): ");
-                    boolean completa = entrada.nextBoolean();
+                    boolean Concluida = entrada.nextBoolean();
                     
-                    boolean atualizado = servico.adicionarTarefa (id, novoTitulo, novaDescricao, completa);
+                    boolean atualizado = servico.atualizarTarefa (id, novoTitulo, novaDescricao, Concluida);
                     if (atualizado) {
                         System.out.println(" Tarefa atualizada com sucesso!");
                     } else {
                         System.out.println("Tarefa não encontrada. ");
                     }
                 }
-                case 5 -> {
+                case 4 -> {
                     System.out.print(" Digite o ID da tarefa: ");
                     Long id = entrada.nextLong();
                     entrada.nextLine();
@@ -91,6 +87,20 @@ public class AppToDoList {
                         System.out.println(" Status da tarefa alterado com sucesso!");
                     } else {
                         System.out.println(" Tarefa não encontrada.");
+                    }
+                }
+                
+                case 5 -> {
+                    System.out.print(" Digite o ID da tarefa: ");
+                    Long id = entrada.nextLong();
+                    entrada.nextLine();
+                    
+                    boolean removida = servico.removerTarefa(id);
+                    if(removida){
+                        System.out.println("Tarefa removida com sucesso!");
+                    }
+                    else {
+                        System.out.println("Tarefa não encontrada.");
                     }
                 }
                 case 0 -> {
